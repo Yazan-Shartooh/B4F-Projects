@@ -50,4 +50,19 @@ export const isNeon = (x) => {
   }
 };
 
-console.log(isNeon());
+export const isDeserium = (x) => {
+  let num = x;
+  let i = intLength(num);
+  let result = 0;
+  let temp = 0;
+  for (i; i > 0; i--) {
+    temp = num % 10;
+    result = Math.pow(temp, i) + result;
+    num = Math.floor(num / 10);
+  }
+  if (result === x) {
+    return true;
+  } else {
+    return false;
+  }
+};
