@@ -24,6 +24,11 @@ export const camelCase = (str) => {
 };
 
 //the fourth question: the HCF of two numbers
+export const hfc = (num1, num2) => {
+  if (num1 === num2) return num1;
+  else if (num1 < num2) return hfc(num2, num1);
+  else return hfc(num2, num1 - num2);
+};
 
 //the fifth question: convert binary to decimal
 export const binaryToDecimal = (bin) => {
@@ -85,17 +90,15 @@ export const highestDigit = (num) => {
 };
 
 //the tenth question:
+export const vowelsExtract = (str, n) => {
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.slice(0, n).join("") : "No Vowels";
+};
 
 // the eleventh question: calculate the factorial
 export const factorial = (num) => {
-  let fac = 1;
-  let temp = num;
-  if (num < 0) return "error";
-  while (temp > 0) {
-    fac = fac * temp;
-    temp--;
-  }
-  return fac;
+  if (num === 1) return 1;
+  else return num * factorial(num - 1);
 };
 
 //the twelveth question: convert a number to string with dashes
@@ -114,7 +117,7 @@ export const numToStringWithDashes = (num) => {
 export const checkArraySorting = (arr) => {
   let check = true;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i + 1] < arr[i]) check = false;
+    if (arr[i] > arr[i + 1]) check = false;
   }
   return check;
 };
@@ -152,6 +155,30 @@ export const reverseNum = (num) => {
 //the seventeenth question: find the ascii
 export const charT0Ascii = (char) => {};
 
+//the eighteenth question: replace vowels with character\
+export const replaceVowels = (str, char) => {
+  return str.replaceAll(/[aeiou]/gi, char);
+};
+
+//the ninteenth question: lines parellal
+
+export const calcSlope = (arr) => {
+  return (arr[3] - arr[1]) / (arr[2] - arr[0]);
+};
+export const parallelLines = (arr1, arr2) => {
+  if (calcSlope(arr1) === calcSlope(arr2)) return "Parallel";
+  else return "Not Parallel";
+};
+
+//the twentyth question: array sum
+export const arrayElementsSum = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = arr[i] + sum;
+  }
+  return sum;
+};
+
 //the twenty first question: digits number in an integer
 export const intLength = (x) => {
   let i = 0;
@@ -161,4 +188,43 @@ export const intLength = (x) => {
     i++;
   }
   return i;
+};
+
+//the twenty second question: Fibonacci number.
+export const fibonacci = (num) => {
+  if (num < 2) return 1;
+  else return fibonacci(num - 1) + fibonacci(num - 2);
+};
+
+//the twenty third question: mean of all digits in a number.
+export const numDigitsMean = (num) => {
+  return sumDigitsNum(num) / intLength(num);
+};
+
+//the twenty fourth question: the largest swap.
+export const theLargestSwap = (num) => {
+  if (num > reverseNum(num)) return true;
+  else return false;
+};
+
+//the twenty fifth question: perfect number
+export const perfectNumCheck = (num) => {
+  let dividors = 0;
+  for (let i = 1; i < num / 2 + 1; i++) {
+    if (num % i === 0) dividors += i;
+  }
+  if (num === dividors) return "perfect";
+  else return "Not Perfect";
+};
+
+//the twenty sixth question: vehicle check
+export const vehicleCheck = (wheels) => {
+  switch (wheels) {
+    case 2:
+      return "Two-wheeler";
+    case 4:
+      return "Four-wheeler";
+    default:
+      return "Invalid";
+  }
 };
