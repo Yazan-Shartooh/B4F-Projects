@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "Yazan",
+      "age": 25,
+      "gender": "M",
+      "id": "fJe8CcF1XeA"
+    },
+    {
+      "name": "Bader",
+      "age": 25,
+      "gender": "M",
+      "id": "hhelPN6c_xU"
+    },
+    {
+      "name": "Lina",
+      "age": 22,
+      "gender": "F",
+      "id": "EdZ747FHQ7g"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
