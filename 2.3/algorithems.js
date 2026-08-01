@@ -25,13 +25,9 @@ export const columsSum = (arr) => {
   return sum;
 };
 
-let arr = [
-  [0, 1, 1, 0, 0, 1],
-  [0, 0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0, 0],
-  [0, 0, 0, 1, 0, 1],
-  [0, 0, 0, 0, 0, 0],
-];
-let sum = columsSum(arr);
-console.log(graphVisiting(arr, sum));
+// (x + y)^n = x^n y^0 + h1 x^n-1 y^1 + h2 x^n-2 y^2 + ...... + hn-2 x^2 y^n-2 + hn-1 x^1 y^n-1 + x^0 y^n
+
+export const pascalTriangle = (x, y) => {
+  if (x == 0 || y == 0 || x == y) return 1;
+  else return pascalTriangle(x - 1, y) + pascalTriangle(x - 1, y - 1);
+};
