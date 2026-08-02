@@ -1,3 +1,6 @@
+body {
+  background-color: darkgray;
+}
 .example {
   background-color: darkgreen;
   width: fit-content;
@@ -20,4 +23,52 @@
   height: 100px;
   padding: 0px 40px;
   border: 20px solid forestgreen;
+}
+
+.container {
+  margin: 50px 0px;
+  padding: 20px;
+  background-color: lightblue;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 20px;
+}
+
+/* Spans all 12 columns */
+.full-width {
+  background-color: cornflowerblue;
+  grid-column: span 12;
+}
+
+/* Spans 6 columns (takes up half the width) */
+.half-width {
+  background-color: darkcyan;
+  grid-column: span 6;
+}
+
+/* Spans 4 columns (takes up 1/3 of the width) */
+.one-third {
+  background-color: darkseagreen;
+  grid-column: span 4;
+}
+
+/* Spans 8 columns (takes up 2/3 of the width) */
+.two-thirds {
+  background-color: deepskyblue;
+  grid-column: span 8;
+}
+
+/* Span 2 columns (takes up 1/6 of the width)*/
+.one-sixth {
+  background-color: rebeccapurple;
+  grid-column: span 2;
+}
+
+.one-sixth,
+.one-third,
+.half-width,
+.full-width,
+.two-thirds {
+  padding: 10px;
 }
