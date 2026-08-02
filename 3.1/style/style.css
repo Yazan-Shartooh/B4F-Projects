@@ -1,0 +1,23 @@
+.example {
+  background-color: darkgreen;
+  width: fit-content;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.borderBox {
+  box-sizing: border-box;
+  width: 400px;
+  height: 100px;
+  padding: 0px 40px;
+  border: 20px solid forestgreen;
+}
+.contentBox {
+  box-sizing: content-box;
+  width: 400px;
+  height: 100px;
+  padding: 0px 40px;
+  border: 20px solid forestgreen;
+}
