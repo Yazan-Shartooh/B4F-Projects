@@ -1,0 +1,57 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: bisque;
+}
+.first-header {
+  position: relative;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.container {
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  box-sizing: border-box;
+  gap: 20px;
+}
+.figure {
+  background-image: url(/B4F-Projects/3.3/assets/wood-background.jpg);
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  grid-column: span 6;
+  height: fit-content;
+}
+.fig-image {
+  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 10px;
+}
+.fig-caption {
+  background-color: whitesmoke;
+  font-weight: bold;
+  padding: 10px;
+  position: absolute;
+  border-radius: 5px;
+}
+.link {
+  color: rgb(99, 129, 77);
+  text-decoration: none;
+}
+.link:hover {
+  color: brown;
+}
+
+.inner-container {
+  background-image: url(/B4F-Projects/3.3/assets/wood-background.jpg);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  grid-column: span 6;
+  height: fit-content;
+}
