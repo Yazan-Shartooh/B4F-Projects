@@ -161,7 +161,6 @@ export const replaceVowels = (str, char) => {
 };
 
 //the ninteenth question: lines parellal
-
 export const calcSlope = (arr) => {
   return (arr[3] - arr[1]) / (arr[2] - arr[0]);
 };
