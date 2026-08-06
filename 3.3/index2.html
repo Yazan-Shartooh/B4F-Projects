@@ -3,8 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 3 Day 3: Assignment 2</title>
+    <title>Week 3 Day 3: Assignment 6</title>
     <link rel="stylesheet" href="style/style2.css" />
   </head>
-  <body></body>
+  <body>
+    <form>
+      <!--the slide container-->
+      <div class="conteainer">
+        <!--fisrt step-->
+        <div class="slide-panel">
+          <h2>Personal Info</h2>
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" required placeholder="e.g. Will Smith" /> <br />
+            <label>Gender</label>
+            <select>
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+              <option value="p">Prefer not to say</option>
+            </select>
+            <br />
+            <label>Birth Date</label>
+            <input type="date" required placeholder="MM/DD/YYYY" /> <br />
+            <label>Phone Number</label>
+            <input type="number" required placeholder="09########" /> <br />
+          </div>
+        </div>
+
+        <!--Second step-->
+        <div class="slide-panel">
+          <h2>Account Details</h2>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" required placeholder="you@example.com" /> <br />
+            <label>User Name</label>
+            <input type="text" required placeholder="Your_Name" /> <br />
+            <label>Password</label>
+            <input type="password" required /> <br />
+          </div>
+        </div>
+
+        <!--third step-->
+        <div class="slide-panel">
+          <h2>Preferences</h2>
+          <div class="input-group">
+            <label>Choose Plan</label> <br />
+            <input type="radio" id="free" name="plan" value="free" />
+            <label>Free</label> <br />
+            <input type="radio" id="premium" name="plan" value="premium" />
+            <label>Premium</label> <br />
+            <input
+              type="radio"
+              id="premium-plus"
+              name="plan"
+              value="premium-plus"
+            />
+            <label>Premium +</label> <br />
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="reset">Clear</button>
+          <button>Submit</button>
+        </div>
+      </div>
+    </form>
+  </body>
 </html>

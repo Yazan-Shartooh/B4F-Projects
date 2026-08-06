@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 3 Day 5: Assignment 6</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <!-- Progress Bar Tracker -->
+      <div class="progress-bar">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="step-indicator active">1</div>
+        <div class="step-indicator">2</div>
+        <div class="step-indicator">3</div>
+      </div>
+
+      <!-- Form Element Wrapper -->
+      <form
+        id="multiStepForm"
+        onsubmit="
+          event.preventDefault();
+          alert('Form Submitted Successfully!');
+        "
+      >
+        <!-- Step 1: Personal Profile -->
+        <div class="form-step active">
+          <h2>Account Setup</h2>
+          <p class="subtitle">Provide your core entry credentials.</p>
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              required
+              placeholder="e.g. johndoe"
+            />
+          </div>
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn-next">Next Step</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Contact Info -->
+        <div class="form-step">
+          <h2>Personal Details</h2>
+          <p class="subtitle">Tell us a little more about yourself.</p>
+          <div class="input-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" required placeholder="John Doe" />
+          </div>
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000" />
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn-prev">Back</button>
+            <button type="button" class="btn-next">Next Step</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Preferences -->
+        <div class="form-step">
+          <h2>Preferences</h2>
+          <p class="subtitle">
+            Customize your user platform layout experience.
+          </p>
+          <div class="input-group">
+            <label for="plan">Subscription Plan</label>
+            <select id="plan">
+              <option value="free">Free Starter Tier</option>
+              <option value="pro">Professional Tier</option>
+              <option value="enterprise">Enterprise Tier</option>
+            </select>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn-prev">Back</button>
+            <button type="submit" class="btn-submit">Submit Form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
