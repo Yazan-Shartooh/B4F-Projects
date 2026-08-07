@@ -15,18 +15,36 @@
           <h2>Personal Info</h2>
           <div class="input-group">
             <label>Full Name</label>
-            <input type="text" required placeholder="e.g. Will Smith" /> <br />
+            <input
+              type="text"
+              required
+              placeholder="e.g. Will Smith"
+              class="input"
+            />
+            <br />
             <label>Gender</label>
-            <select>
+            <select class="input">
               <option value="m">Male</option>
               <option value="f">Female</option>
               <option value="p">Prefer not to say</option>
             </select>
             <br />
             <label>Birth Date</label>
-            <input type="date" required placeholder="MM/DD/YYYY" /> <br />
+            <input
+              type="date"
+              required
+              placeholder="MM/DD/YYYY"
+              class="input"
+            />
+            <br />
             <label>Phone Number</label>
-            <input type="number" required placeholder="09########" /> <br />
+            <input
+              type="number"
+              required
+              placeholder="09########"
+              class="input"
+            />
+            <br />
           </div>
         </div>
 
@@ -35,11 +53,18 @@
           <h2>Account Details</h2>
           <div class="input-group">
             <label>Email</label>
-            <input type="email" required placeholder="you@example.com" /> <br />
+            <input
+              type="email"
+              required
+              placeholder="you@example.com"
+              class="input"
+            />
+            <br />
             <label>User Name</label>
-            <input type="text" required placeholder="Your_Name" /> <br />
+            <input type="text" required placeholder="Your_Name" class="input" />
+            <br />
             <label>Password</label>
-            <input type="password" required /> <br />
+            <input type="password" required class="input" /> <br />
           </div>
         </div>
 
@@ -47,18 +72,19 @@
         <div class="slide-panel">
           <h2>Preferences</h2>
           <div class="input-group">
-            <label>Choose Plan</label> <br />
-            <input type="radio" id="free" name="plan" value="free" />
-            <label>Free</label> <br />
-            <input type="radio" id="premium" name="plan" value="premium" />
-            <label>Premium</label> <br />
-            <input
-              type="radio"
-              id="premium-plus"
-              name="plan"
-              value="premium-plus"
-            />
-            <label>Premium +</label> <br />
+            <label>Choose Plan</label>
+            <select class="input">
+              <option value="free">Free</option>
+              <option value="plus">Plus</option>
+              <option value="premium">Premium</option>
+            </select>
+            <br />
+            <label>Mode</label>
+            <select class="input">
+              <option value="light" id="light">Light</option>
+              <option value="dark" id="dark">Dark</option>
+            </select>
+            <br />
           </div>
         </div>
         <div class="btn-group">
