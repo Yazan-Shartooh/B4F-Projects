@@ -1,15 +1,13 @@
 body {
-  background-color: #fbfcf2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  background-color: #eeeeee;
 }
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
   border: 0px;
+}
+h1 {
+  color: darkred;
+  text-align: center;
 }
 form {
   background-color: white;
@@ -19,23 +17,20 @@ form {
     6px 12px 12px rgba(3, 7, 18, 0.06),
     10px 20px 20px rgba(3, 7, 18, 0.04),
     16px 32px 32px rgba(3, 7, 18, 0.02);
-  width: fit-content;
-  padding: 20px;
-  position: relative;
-  display: block;
   border-radius: 12px;
 }
-h2 {
+.container {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 15px;
 }
 
 .slide-panel {
-  display: flexbox;
   background-color: #ffffff;
+  transition: transform 0.2s;
+  display: inline-block;
+  margin: 20px;
+  min-width: 26%;
+  height: 250px;
   border-radius: 12px;
   box-shadow:
     1px 1px 1px rgba(3, 7, 18, 0.1),
@@ -43,13 +38,10 @@ h2 {
     6px 12px 12px rgba(3, 7, 18, 0.06),
     10px 20px 20px rgba(3, 7, 18, 0.04),
     16px 32px 32px rgba(3, 7, 18, 0.02);
-
-  width: 100%;
-  max-width: 550px;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 30px;
 }
 button {
+  margin-bottom: 30px;
   padding: 12px 24px;
   border: none;
   border-radius: 6px;
@@ -62,21 +54,27 @@ button {
     6px 12px 12px rgba(3, 7, 18, 0.06),
     10px 20px 20px rgba(3, 7, 18, 0.04),
     16px 32px 32px rgba(3, 7, 18, 0.02);
+  transition: 0.5s ease-out;
 }
+
+button:hover {
+  background-color: darkred;
+  color: #ececec;
+}
+
 .btn-group {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 32px;
 }
 
-/* From Uiverse.io by Praashoo7 */
 .input {
   border: none;
   margin: 10px;
+  padding: 5px;
   outline: none;
   border-radius: 15px;
-  padding: 0.5em;
+  padding: 0.4em;
   background-color: #ccc;
   box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
   transition: 300ms ease-in-out;
@@ -88,4 +86,9 @@ button {
   box-shadow:
     13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
+}
+
+.slide-panel:hover {
+  background-color: #ececec;
+  transform: scale(1.05);
 }
