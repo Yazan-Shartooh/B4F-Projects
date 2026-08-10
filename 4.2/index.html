@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>trying</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>converter</h1>
+      <h3>Add your input:</h3>
+      <input
+        id="input1"
+        type="number"
+        placeholder="00 Kg"
+        oninput="myFunc1()"
+      />
+      <input
+        id="input2"
+        type="number"
+        placeholder="00 Km"
+        oninput="myFunc2()"
+      />
+      <span id="result1"></span> <br />
+      <span id="result2"></span> <br />
+      <script src="js/main.js"></script>
+    </div>
+
+    <div class="container">
+      <h1>BMI</h1>
+      <h3>Add your hight and weight:</h3>
+      <input type="number" id="hight" required placeholder="Hight" />
+      <input type="number" id="weight" required placeholder="Weight" />
+      <button onclick="bmi()">Calculate</button>
+      <div id="bmi"></div>
+    </div>
+  </body>
+</html>

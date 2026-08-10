@@ -1,0 +1,43 @@
+* {
+  border: none;
+  box-sizing: border-box;
+  color: whitesmoke;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+.container {
+  padding: 20px;
+  background-color: darkslateblue;
+  width: fit-content;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+input {
+  width: 75%;
+  height: 25px;
+  display: block;
+  margin: 20px;
+  outline: none;
+  border-radius: 15px;
+  padding: 0.4em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+button {
+  color: black;
+  margin-bottom: 30px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    1px 1px 1px rgba(3, 7, 18, 0.1),
+    3px 5px 5px rgba(3, 7, 18, 0.08),
+    6px 12px 12px rgba(3, 7, 18, 0.06),
+    10px 20px 20px rgba(3, 7, 18, 0.04),
+    16px 32px 32px rgba(3, 7, 18, 0.02);
+}
