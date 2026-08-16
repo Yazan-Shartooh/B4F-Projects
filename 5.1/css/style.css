@@ -1,0 +1,34 @@
+.container {
+  padding: 20px;
+  background-color: lightblue;
+  /* box-sizing: border-box; */
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 20px;
+  align-items: center;
+  height: 250px;
+  margin: 20px;
+}
+
+.container > div {
+  grid-column: span 4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+  width: fit-content;
+  transition: 0.5s ease-out;
+}
+.container > div:hover {
+  box-shadow: 0 8px 24px rgba(238, 101, 101, 0.716);
+  transform: scale(1.05);
+}
+
+#sbtn,
+#pbtn,
+#rbtn {
+  display: block;
+  width: 10rem;
+  padding: 10px;
+}
+img {
+  width: 50%;
+}
