@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TaskFlow</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Task Flow</h1>
+      <p>All your tasks in one place.</p>
+    </header>
+    <main class="container">
+      <section class="stats">
+        <div class="stat-card">
+          <p class="stat-label">Total Tasks</p>
+          <p class="stat-value">6</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Completed</p>
+          <p class="stat-value">4</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Pending</p>
+          <p class="stat-value">2</p>
+        </div>
+      </section>
+      <div class="btn-group">
+        <button class="btn active">All</button>
+        <button class="btn">Completed</button>
+        <button class="btn">Pending</button>
+      </div>
+      <ul class="task-list">
+        <li class="task-item">
+          <span class="task-title">Design the TaskFlow page.</span>
+          <span class="task-status status-completed">Completed</span>
+        </li>
+        <li class="task-item">
+          <span class="task-title">Make the page responsive.</span>
+          <span class="task-status status-pending">Pending</span>
+        </li>
+        <li class="task-item">
+          <span class="task-title">Style the cards.</span>
+          <span class="task-status status-completed">Completed</span>
+        </li>
+        <li class="task-item">
+          <span class="task-title">Style the items.</span>
+          <span class="task-status status-completed">Completed</span>
+        </li>
+        <li class="task-item">
+          <span class="task-title">Create the JavaScript file.</span>
+          <span class="task-status status-completed">Completed</span>
+        </li>
+        <li class="task-item">
+          <span class="task-title">Present the work.</span>
+          <span class="task-status status-pending">Pending</span>
+        </li>
+      </ul>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>
