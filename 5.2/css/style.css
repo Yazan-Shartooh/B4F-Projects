@@ -109,6 +109,10 @@ body {
   border-radius: 10px;
   padding: 15px 10px;
   margin-bottom: 12px;
+  transition: 0.5s ease-in-out;
+}
+.task-item:hover {
+  border: 1px dashed #0b57cf;
 }
 
 .task-status {
@@ -124,4 +128,16 @@ body {
 
 .status-pending {
   background-color: #cf0b0b;
+}
+
+.footer {
+  background-color: white;
+  border-top: 1px solid #e2e5ea;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.footer p {
+  color: #6b7288;
+  margin-top: 6px;
 }

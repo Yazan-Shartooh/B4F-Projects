@@ -1,4 +1,5 @@
-import { intLength } from "./lib2.js";
+import { intLength, vowelsExtract } from "./lib2.js";
+import { map } from "./data.js";
 
 //question one: count the number of even and odd digits
 export const evenOddCount = (num) => {
@@ -61,4 +62,20 @@ export const arraysIntersection = (arr1, arr2) => {
   }
   return intersection.sort((a, b) => a - b);
 };
-console.log(arraysIntersection([40, 30, 20], [40, 30, 50]));
+
+//question seven: cryptogram
+export const cryptogram = (str, map) => {
+  let lower = str.toLowerCase();
+  let temp = "";
+  for (let i = 0; i <= str.length; i++) {
+    if (lower[i] in map) temp = temp.concat(map[lower[i]]);
+  }
+  return temp;
+};
+
+//question eight: vowels and consonants from the string
+export const vowelsConsonants = (str) => {
+  let temp = str.toLowerCase();
+  let vowels = vowels.vowelsExtract(str, str.length);
+  let consonants = "";
+};
