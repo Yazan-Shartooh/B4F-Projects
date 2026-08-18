@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Create the taskflow page.", "completed": true },
+  { "id": 2, "title": "Finish the JavaScript file", "completed": false },
+  { "id": 3, "title": "Make the elements responsive", "completed": true },
+  { "id": 4, "title": "Finished the second homework.", "completed": false },
+  { "id": 5, "title": "Give the page some styling.", "completed": true },
+  { "id": 6, "title": "Finished the first homework.", "completed": true }
+]

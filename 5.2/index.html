@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>TaskFlow</title>
-
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -18,48 +16,27 @@
       <section class="stats">
         <div class="stat-card">
           <p class="stat-label">Total Tasks</p>
-          <p class="stat-value">6</p>
+          <p class="stat-value" id="totalCount">0</p>
         </div>
         <div class="stat-card">
           <p class="stat-label">Completed</p>
-          <p class="stat-value">4</p>
+          <p class="stat-value" id="completedCount">0</p>
         </div>
         <div class="stat-card">
           <p class="stat-label">Pending</p>
-          <p class="stat-value">2</p>
+          <p class="stat-value" id="pendingCount">0</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Completion Rate</p>
+          <p class="stat-value" id="completedRate">0</p>
         </div>
       </section>
       <div class="btn-group">
-        <button class="btn active">All</button>
-        <button class="btn">Completed</button>
-        <button class="btn">Pending</button>
+        <button class="btn active" id="allTasks">All</button>
+        <button class="btn" id="completedTasks">Completed</button>
+        <button class="btn" id="pendingTasks">Pending</button>
       </div>
-      <ul class="task-list">
-        <li class="task-item">
-          <span class="task-title">Design the TaskFlow page.</span>
-          <span class="task-status status-completed">Completed</span>
-        </li>
-        <li class="task-item">
-          <span class="task-title">Make the page responsive.</span>
-          <span class="task-status status-pending">Pending</span>
-        </li>
-        <li class="task-item">
-          <span class="task-title">Style the cards.</span>
-          <span class="task-status status-completed">Completed</span>
-        </li>
-        <li class="task-item">
-          <span class="task-title">Style the items.</span>
-          <span class="task-status status-completed">Completed</span>
-        </li>
-        <li class="task-item">
-          <span class="task-title">Create the JavaScript file.</span>
-          <span class="task-status status-completed">Completed</span>
-        </li>
-        <li class="task-item">
-          <span class="task-title">Present the work.</span>
-          <span class="task-status status-pending">Pending</span>
-        </li>
-      </ul>
+      <ul class="task-list" id="taskList"></ul>
     </main>
     <footer class="footer">
       <p>TaskFlow - built during the frontend training.</p>
