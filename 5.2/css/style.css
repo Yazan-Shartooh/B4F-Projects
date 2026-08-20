@@ -98,7 +98,7 @@ body {
   outline: none;
   border-radius: 15px;
   padding: 0.8em;
-  width: 410px;
+  width: 300px;
   background-color: #ccc;
   box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
   transition: 300ms ease-in-out;
@@ -160,6 +160,24 @@ body {
 .footer p {
   color: #6b7288;
   margin-top: 6px;
+}
+
+/* messages style */
+.message {
+  color: #1f2438;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+.message.error {
+  background-color: #e2e5ea;
+  padding: 15px 20px;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.message.hidden {
+  display: none;
 }
 
 /* media querey */

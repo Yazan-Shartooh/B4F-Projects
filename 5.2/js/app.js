@@ -1,28 +1,23 @@
-const tasks = [
-  { id: 1, title: "Create the taskflow page.", completed: true },
-  { id: 2, title: "Finish the JavaScript file", completed: false },
-  { id: 3, title: "Make the elements responsive", completed: true },
-  { id: 4, title: "Finished the second homework.", completed: false },
-  { id: 5, title: "Give the page some styling.", completed: true },
-  { id: 6, title: "Finished the first homework.", completed: true },
-  { id: 7, title: "Started the second homework.", completed: false },
-  { id: 8, title: "Read about JavaScript objects.", completed: true },
-  { id: 9, title: "Prepare questions for the next session.", completed: false },
-];
+let tasks = [];
+const API_URL = "https://jsonplaceholder.typicode.com/todos?_limit=50";
+let searchText = "";
 // // // Yazan's Way
 // // counter variables
 // const totalCount = document.querySelector("#totalCount");
 // const completedCount = document.querySelector("#completedCount");
 // const pendingCount = document.querySelector("#pendingCount");
 // const completedRate = document.querySelector("#completedRate");
+// const progressText = document.querySelector("#progressText");
 
 // // filter variables
 // const allTasks = document.querySelector("#allTasks");
 // const completedTasks = document.querySelector("#completedTasks");
 // const pendingTasks = document.querySelector("#pendingTasks");
+// const searchInput = document.querySelector("#searchText");
 
 // // list variable
 // const myList = document.querySelector("#taskList");
+
 // const updateStates = () => {
 //   let comp = 0;
 //   let pend = 0;
@@ -103,10 +98,26 @@ const tasks = [
 //   pendingTasks.classList.add("active");
 // });
 
-// // // Nawar's Way
+// function updateProgressText() {
+//   let completedCounter = 0;
+//   for (const task of tasks) {
+//     if (task.completed) completedCounter++;
+//   }
+//   progressText.textContent = `${completedCounter} of ${tasks.length} tasks completed.`;
+// }
+// updateProgressText();
+
+// searchInput.addEventListener("input", () => {
+//   searchText = searchInput.innerHTML;
+// });
+// // Nawar's Way
 let currentFilter = "all";
 
 const taskList = document.querySelector("#taskList");
+
+const loadingMessage = document.querySelector("#loadingMessage");
+const errorMessage = document.querySelector("#errorMessage");
+const emptyMessage = document.querySelector("#emptyMessage");
 
 const totalCount = document.querySelector("#totalCount");
 const completedCount = document.querySelector("#completedCount");
@@ -116,8 +127,29 @@ const completedRate = document.querySelector("#completedRate");
 const filterAllButton = document.querySelector("#allTasks");
 const filterCompletedButton = document.querySelector("#completedTasks");
 const filterPendingButton = document.querySelector("#pendingTasks");
+const filterSearch = document.querySelector("#searchText");
 
 const progressText = document.querySelector("#progressText");
+
+// Load content tasks
+async function loadTasks() {
+  showLoading();
+  // setTimeout(() => controller.abort(), 100);
+  try {
+    const response = await fetch(API_URL);
+    tasks = await response.json();
+    updateStats();
+    renderTasks();
+    updateProgressText();
+    hideLoading();
+    if (tasks.length == 0) {
+      showEmpty();
+    }
+  } catch (error) {
+    hideLoading();
+    showError();
+  }
+}
 
 // Count the tasks and write the numbers into the three cards.
 function updateStats() {
@@ -133,8 +165,12 @@ function updateStats() {
   }
 
   totalCount.textContent = tasks.length;
-  completedRate.textContent =
-    Math.floor((completed * 100) / tasks.length) + " %";
+  if (tasks.length == 0) {
+    completedRate.textContent = 0 + "%";
+  } else {
+    completedRate.textContent =
+      Math.floor((completed * 100) / tasks.length) + " %";
+  }
   completedCount.textContent = completed;
   pendingCount.textContent = pending;
 }
@@ -151,13 +187,20 @@ function getVisibleTasks() {
   const visibleTasks = [];
 
   for (const task of tasks) {
+    let matchesFilter = false;
+
     if (currentFilter === "all") {
-      visibleTasks.push(task);
+      matchesFilter = true;
     } else if (currentFilter === "completed" && task.completed) {
-      visibleTasks.push(task);
+      matchesFilter = true;
     } else if (currentFilter === "pending" && !task.completed) {
-      visibleTasks.push(task);
+      matchesFilter = true;
     }
+
+    const title = task.title.toLowerCase();
+    const search = searchText.toLowerCase();
+
+    if (matchesFilter && title.includes(search)) visibleTasks.push(task);
   }
 
   return visibleTasks;
@@ -171,12 +214,10 @@ function renderTasks() {
   for (const task of visibleTasks) {
     let statusClass = "pending";
     let statusText = "Pending";
-
     if (task.completed) {
       statusClass = "completed";
       statusText = "Completed";
     }
-
     html += `
             <li class="task-item">
                 <span class="task-title">${task.title}</span>
@@ -184,17 +225,11 @@ function renderTasks() {
             </li>
         `;
   }
-
-  //   console.log(html);
-
   taskList.innerHTML = html;
 }
 
 function setFilter(newFilter, clickedButton) {
   currentFilter = newFilter;
-
-  console.log(newFilter);
-  console.log(newFilter);
 
   filterAllButton.classList.remove("active");
   filterCompletedButton.classList.remove("active");
@@ -216,7 +251,24 @@ filterCompletedButton.addEventListener("click", function () {
 filterPendingButton.addEventListener("click", function () {
   setFilter("pending", filterPendingButton);
 });
+filterSearch.addEventListener("input", () => {
+  searchText = filterSearch.value;
+  renderTasks();
+});
 
-updateStats();
-renderTasks();
-updateProgressText();
+function showLoading() {
+  loadingMessage.classList.remove("hidden");
+  errorMessage.classList.add("hidden");
+  emptyMessage.classList.add("hidden");
+}
+function hideLoading() {
+  loadingMessage.classList.add("hidden");
+}
+function showError() {
+  errorMessage.classList.remove("hidden");
+}
+function showEmpty() {
+  emptyMessage.classList.remove("hidden");
+}
+
+loadTasks();
