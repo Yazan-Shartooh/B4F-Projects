@@ -148,6 +148,10 @@ body {
   color: #1f2438;
   font-size: 14px;
 }
+.username {
+  color: #1f2438;
+  font-size: 12px;
+}
 
 /* footer edits */
 .footer {
@@ -199,6 +203,7 @@ body {
 }
 @media (max-width: 480px) {
   .btn {
+    margin-top: 10px;
     width: 100%;
   }
 }

@@ -1,5 +1,8 @@
 let tasks = [];
-const API_URL = "https://jsonplaceholder.typicode.com/todos?_limit=50";
+let users = [];
+let existUsers = [];
+const API_URL_TODO = "https://jsonplaceholder.typicode.com/todos?_limit=50";
+const API_URL_USERS = "https://jsonplaceholder.typicode.com/users";
 let searchText = "";
 // // // Yazan's Way
 // // counter variables
@@ -123,6 +126,7 @@ const totalCount = document.querySelector("#totalCount");
 const completedCount = document.querySelector("#completedCount");
 const pendingCount = document.querySelector("#pendingCount");
 const completedRate = document.querySelector("#completedRate");
+const usersCount = document.querySelector("#usersCount");
 
 const filterAllButton = document.querySelector("#allTasks");
 const filterCompletedButton = document.querySelector("#completedTasks");
@@ -136,7 +140,7 @@ async function loadTasks() {
   showLoading();
   // setTimeout(() => controller.abort(), 100);
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL_TODO);
     tasks = await response.json();
     updateStats();
     renderTasks();
@@ -150,12 +154,20 @@ async function loadTasks() {
     showError();
   }
 }
+async function loadUsers() {
+  try {
+    const response2 = await fetch(API_URL_USERS);
+    users = await response2.json();
+  } catch {
+    console.log("Failed loading users.");
+  }
+}
 
 // Count the tasks and write the numbers into the three cards.
 function updateStats() {
   let completed = 0;
   let pending = 0;
-
+  let usersC = existUsers.length;
   for (const task of tasks) {
     if (task.completed) {
       completed++;
@@ -173,6 +185,7 @@ function updateStats() {
   }
   completedCount.textContent = completed;
   pendingCount.textContent = pending;
+  usersCount.innerHTML = existUsers.length;
 }
 
 function updateProgressText() {
@@ -218,10 +231,13 @@ function renderTasks() {
       statusClass = "completed";
       statusText = "Completed";
     }
+    let name = getUserName(task.userId);
+    countUsers(task.userId);
     html += `
             <li class="task-item">
-                <span class="task-title">${task.title}</span>
+                <span class="task-title">${task.title} <br><span class="username">The Task belongs to ${name}.</span></span>
                 <span class="task-status ${statusClass}">${statusText}</span>
+                
             </li>
         `;
   }
@@ -238,6 +254,22 @@ function setFilter(newFilter, clickedButton) {
   clickedButton.classList.add("active");
 
   renderTasks();
+}
+
+function getUserName(userId) {
+  let answer = "Undifined";
+  for (const user of users) {
+    if (userId == user.id) return user.name;
+  }
+  return answer;
+}
+
+function countUsers(userId) {
+  for (const user of users) {
+    if (userId == user.id && !existUsers.includes(user)) {
+      existUsers.push(user);
+    }
+  }
 }
 
 filterAllButton.addEventListener("click", function () {
@@ -271,4 +303,5 @@ function showEmpty() {
   emptyMessage.classList.remove("hidden");
 }
 
+loadUsers();
 loadTasks();
