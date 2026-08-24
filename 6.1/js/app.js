@@ -23,30 +23,17 @@ const filterCompletedButton = document.querySelector("#filterCompleted");
 const filterPendingButton = document.querySelector("#filterPending");
 const peopleList = document.querySelector("#peopleList");
 const allPeopleButton = document.querySelector("#allPeopleButton");
-function updateProgressText() {
-    let completed = 0;
-    for (const task of tasks) {
-        if (task.completed) {
-            completed++;
-        }
-    }
-    progressText.textContent = `${completed} of ${tasks.length} tasks completed`;
-}
-// Count the tasks and write the numbers into the three cards.
 function updateStats() {
     let completed = 0;
-    let pending = 0;
     for (const task of tasks) {
         if (task.completed) {
             completed++;
-        }
-        else {
-            pending++;
         }
     }
     totalCount.textContent = String(tasks.length);
     completedCount.textContent = String(completed);
-    pendingCount.textContent = String(pending);
+    pendingCount.textContent = String(tasks.length - completed);
+    progressText.textContent = `${completed} of ${tasks.length} tasks completed`;
 }
 async function loadTasks() {
     showLoading();
@@ -58,7 +45,6 @@ async function loadTasks() {
         hideLoading();
         updateStats();
         renderTasks();
-        updateProgressText();
         renderPeopleSummary();
     }
     catch (error) {

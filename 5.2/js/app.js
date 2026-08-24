@@ -158,6 +158,9 @@ async function loadUsers() {
   try {
     const response2 = await fetch(API_URL_USERS);
     users = await response2.json();
+    for (const task of tasks) {
+      countUsers(task.userId);
+    }
   } catch {
     console.log("Failed loading users.");
   }
@@ -167,7 +170,6 @@ async function loadUsers() {
 function updateStats() {
   let completed = 0;
   let pending = 0;
-  let usersC = existUsers.length;
   for (const task of tasks) {
     if (task.completed) {
       completed++;
@@ -232,7 +234,7 @@ function renderTasks() {
       statusText = "Completed";
     }
     let name = getUserName(task.userId);
-    countUsers(task.userId);
+
     html += `
             <li class="task-item">
                 <span class="task-title">${task.title} <br><span class="username">The Task belongs to ${name}.</span></span>

@@ -57,34 +57,19 @@ const peopleList = document.querySelector<HTMLUListElement>("#peopleList");
 const allPeopleButton =
   document.querySelector<HTMLButtonElement>("#allPeopleButton");
 
-function updateProgressText(): void {
-  let completed: number = 0;
-
-  for (const task of tasks) {
-    if (task.completed) {
-      completed++;
-    }
-  }
-
-  progressText.textContent = `${completed} of ${tasks.length} tasks completed`;
-}
-
-// Count the tasks and write the numbers into the three cards.
 function updateStats(): void {
   let completed: number = 0;
-  let pending: number = 0;
 
   for (const task of tasks) {
     if (task.completed) {
       completed++;
-    } else {
-      pending++;
     }
   }
-
   totalCount.textContent = String(tasks.length);
   completedCount.textContent = String(completed);
-  pendingCount.textContent = String(pending);
+  pendingCount.textContent = String(tasks.length - completed);
+
+  progressText.textContent = `${completed} of ${tasks.length} tasks completed`;
 }
 
 async function loadTasks(): Promise<void> {
@@ -102,7 +87,6 @@ async function loadTasks(): Promise<void> {
     hideLoading();
     updateStats();
     renderTasks();
-    updateProgressText();
     renderPeopleSummary();
   } catch (error) {
     showError();
@@ -226,7 +210,7 @@ function getVisibleTasks(): Task[] {
     const title: string = task.title.toLowerCase();
     const search: string = searchText.toLowerCase();
 
-    const matchesSearch = title.includes(search);
+    const matchesSearch: boolean = title.includes(search);
 
     let matchesPerson: boolean = false;
 
